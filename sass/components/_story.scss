@@ -1,0 +1,87 @@
+.story{
+    width: 75%;
+    background-color: rgba($color-white, .6);
+    margin: 0 auto;
+    padding: 6rem;
+    padding-left: 9rem;
+    border-radius: 3px;
+    box-shadow: 0 3rem 6rem rgba($color: #000000, $alpha: .1);
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    backface-visibility: hidden;
+    /*
+    & > *{
+        transform: skewX(12deg); This will not apply on image because there is already an transform property & we cannot define two tranform property at the same time so we are defining manuallly.
+    }
+    */
+
+    @include respond(tab-port){
+        width: 100%; 
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include respond(phone){
+        transform: skewX(0);
+    }
+
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%); 
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+
+        @include respond(phone){
+            transform: translateX(-3rem) skewX(0);
+        }
+
+        
+    }
+
+    &__img{
+        height: 100%; //bcz image is wider so it cannot fill the full shape..that's why height 100% try with width.
+        transform: translateX(-15%) scale(1.4);
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    &__caption{
+      position: absolute; 
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,20%);
+      text-transform: uppercase;
+      font-size: 1.7rem;
+      text-align: center;
+      color: $color-white;
+      opacity: 0;
+      transition: all .5s;
+      backface-visibility: hidden;
+    }
+
+    &__text{
+        transform: skewX(12deg);
+        backface-visibility: hidden;
+
+        @include respond(phone){
+            transform:skewX(0);
+        }
+    }
+
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50% , -50%);
+        backface-visibility: hidden;
+        
+    }
+    &:hover &__img{
+        transform: translateX(-15%) scale(1);
+        filter: blur(4px) brightness(80%);
+        backface-visibility: hidden;
+    }
+}
