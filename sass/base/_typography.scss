@@ -11,6 +11,7 @@ body{
     color: $color-white;
     text-transform: uppercase;
     margin-bottom: 6rem;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
     &--main{
@@ -24,8 +25,12 @@ body{
             letter-spacing: 1rem;
         }
     
+        -webkit-animation-name: moveInLeft;
+    
         animation-name: moveInLeft;
+        -webkit-animation-duration: 1s;
         animation-duration: 1s;
+        -webkit-animation-timing-function: ease-out;
         animation-timing-function: ease-out; /*start faster, end slowly/easily */
     
         /*animation-delay: 2s; wait before animation
@@ -37,6 +42,7 @@ body{
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 1.75rem;
+        -webkit-animation: moveInRight 1s ease-out;
         animation: moveInRight 1s ease-out; 
 
         @include respond(phone){
@@ -50,10 +56,12 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     display: inline-block;
+    background-image: -webkit-gradient(linear,left top, right top,from($color-primary-light) , to($color-primary-dark));
     background-image: linear-gradient(to right,$color-primary-light , $color-primary-dark);
     -webkit-background-clip: text; //this will cut the background as a text shape
     color: transparent; //to display cutted background..we make out text transparent
     letter-spacing: .2rem;
+    -webkit-transition: all .2s;
     transition: all .2s;
 
     @include respond(tab-port){
@@ -65,6 +73,7 @@ body{
 
 
     &:hover{
+        -webkit-transform: skewY(2deg) skewX(15deg) scale(1.1);
         transform: skewY(2deg) skewX(15deg) scale(1.1);
         text-shadow: .5rem 1rem 2rem rgba(#000000,.2);
     }

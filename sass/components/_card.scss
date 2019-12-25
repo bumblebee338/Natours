@@ -9,29 +9,36 @@
 
     &__side{
         height: 52rem;
+        -webkit-transition: all .8s ease;
         transition: all .8s ease;
         position: absolute;
         left: 0;
         right: 0;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         width: 100%;
         border-radius: 5px;
         overflow: hidden;
+        -webkit-box-shadow: $shadow-property;
         box-shadow: $shadow-property;
 
         &--front{
             background-color: $color-white;
         }
         &--back{
+            -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
 
             &-1{
+                background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light), to($color-secondary-dark));
                 background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark);
             }
             &-2{
+                background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-light), to($color-primary-dark));
                 background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark);
             }
             &-3{
+                background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light), to($color-tertiary-dark));
                 background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark);
             }
         }
@@ -39,10 +46,12 @@
     }
 
     &:hover &__side--front{
+        -webkit-transform: rotateY(-180deg);
         transform: rotateY(-180deg);
     }
 
     &:hover &__side--back{
+        -webkit-transform: rotateY(0);
         transform: rotateY(0);
     }
 
@@ -58,15 +67,21 @@
         border-top-right-radius: 3px;
 
         &--1{
+            background-image: -webkit-gradient(linear,left top, right bottom,from($color-secondary-light), to($color-secondary-dark)),
+            url(../img/nat-5.jpg);
             background-image: linear-gradient(to bottom right,$color-secondary-light, $color-secondary-dark),
             url(../img/nat-5.jpg);
             
         }
         &--2{
+            background-image: -webkit-gradient(linear,left top, right bottom,from($color-primary-light), to($color-primary-dark)),
+            url(../img/nat-6.jpg);
             background-image: linear-gradient(to bottom right,$color-primary-light, $color-primary-dark),
             url(../img/nat-6.jpg);
         }
         &--3{
+            background-image: -webkit-gradient(linear,left top, right bottom,from($color-tertiary-light), to($color-tertiary-dark)),
+            url(../img/nat-7.jpg);
             background-image: linear-gradient(to bottom right,$color-tertiary-light, $color-tertiary-dark),
             url(../img/nat-7.jpg);
         }
@@ -91,16 +106,28 @@
         box-decoration-break: clone;
 
         &--1{
+            background-image: -webkit-gradient(linear, 
+            left top, right bottom, 
+            from(rgba($color-secondary-light,.85)), 
+            to(rgba($color-secondary-dark,.85)));
             background-image: linear-gradient(to bottom right, 
             rgba($color-secondary-light,.85), 
             rgba($color-secondary-dark,.85));
         }
         &--2{
+            background-image: -webkit-gradient(linear, 
+            left top, right bottom, 
+            from(rgba($color-primary-light,.85)), 
+            to(rgba($color-primary-dark,.85)));
             background-image: linear-gradient(to bottom right, 
             rgba($color-primary-light,.85), 
             rgba($color-primary-dark,.85));
         }
         &--3{
+            background-image: -webkit-gradient(linear, 
+            left top, right bottom, 
+            from(rgba($color-tertiary-light,.85)), 
+            to(rgba($color-tertiary-dark,.85)));
             background-image: linear-gradient(to bottom right, 
             rgba($color-tertiary-light,.85), 
             rgba($color-tertiary-dark,.85));
@@ -135,6 +162,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
         width: 90%;
         text-align: center;
@@ -161,6 +189,7 @@
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @include respond(tab-port){
         height: auto;
+        -webkit-box-shadow: $shadow-property;
         box-shadow: $shadow-property;
         background-color: $color-white;
 
@@ -168,10 +197,13 @@
                 height: auto;
                 position: relative;
                 border-radius: 5px;
+                -webkit-box-shadow: none;
                 box-shadow: none;
 
                 &--back{
+                    -webkit-transform: rotateY(0);
                     transform: rotateY(0);
+                    -webkit-clip-path: polygon(0 15%, 100% 0,100% 100%, 0 100%);
                     clip-path: polygon(0 15%, 100% 0,100% 100%, 0 100%);
                     //margin-top: -4.3rem;
                 }
@@ -179,6 +211,7 @@
             }
 
             &:hover &__side--front{
+                -webkit-transform: rotateY(0);
                 transform: rotateY(0);
             }
 
@@ -191,6 +224,7 @@
                 position: relative;
                 top: 0;
                 left: 0;
+                -webkit-transform: translate(0);
                 transform: translate(0);
                 width: 100%;
                 padding: 7rem 4rem 4rem 4rem;
