@@ -22,7 +22,6 @@
 
         &:focus{
             outline: none;
-            -webkit-box-shadow: 0 1rem 2rem rgba($color-black, .1);
             box-shadow: 0 1rem 2rem rgba($color-black, .1);
             border-bottom: 3px solid $color-primary;
         }
@@ -44,14 +43,12 @@
         display: block;
         margin-left: 2rem;
         margin-top: .7rem;
-        -webkit-transition: all .3s;
         transition: all .3s;
     }
 
     &__input:placeholder-shown + &__label{ //adjacent sibling selector
         opacity: 0;
         visibility: hidden;
-        -webkit-transform: translateY(-4rem);
         transform: translateY(-4rem);
     }
 
@@ -95,10 +92,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
             opacity: 0;
-            -webkit-transition: all .2s;
             transition: all .2s;
         }
     }

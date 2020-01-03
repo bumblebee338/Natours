@@ -10,7 +10,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
 
@@ -46,16 +45,16 @@ ORDER: Base + typography > general layout + grid  > page layout >  components
 
 @mixin respond($breakpoint) {
     @if $breakpoint==phone {
-        @media (max-width:600px) { @content }
+        @media only screen and  (max-width:600px) { @content }
     }
     @if $breakpoint==tab-port {
-        @media (max-width:900px) { @content }
+        @media only screen and (max-width:900px) { @content }
     }
     @if $breakpoint== tab-land {
-        @media (max-width:1200px) { @content }
+        @media only screen and (max-width:1200px) { @content }
     }
     @if $breakpoint== big-display {
-        @media (min-width:1800px) { @content }
+        @media only screen and (min-width:1800px) { @content }
     }
 
 }

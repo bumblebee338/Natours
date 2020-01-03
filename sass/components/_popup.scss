@@ -9,23 +9,25 @@
 
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all .3s ;
     transition: all .3s ;
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)){
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black,.3);
+    }
 
     &__content{
         @include absCenter;
 
         width: 75%;
         background-color: $color-white;
-        -webkit-box-shadow: 0 2rem 4rem rgba($color-black, .2);
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
         border-radius: 3px;
         display: table;
         overflow: hidden;
         opacity: 0;
-        -webkit-transform: translate(-50%,-50%) scale(0) ;
         transform: translate(-50%,-50%) scale(0) ;
-        -webkit-transition: all .4s .2s;
         transition: all .4s .2s;
 
         @include respond(tab-port){
@@ -64,18 +66,15 @@
         font-size: 1.4rem;
         margin-bottom: 4rem;
 
-        -webkit-column-count: 2;
-
         column-count: 2;
-        -webkit-column-gap: 4rem;
         column-gap: 4rem;
-        -webkit-column-rule: 1px solid $color-grey-light-2;
         column-rule: 1px solid $color-grey-light-2;
         -moz-column-count: 2;
         -moz-column-gap: 4rem;
         -moz-column-rule: 1px solid $color-grey-light-2;
 
         -webkit-hyphens: auto;
+        -moz-hyphens: auto;
         -ms-hyphens: auto;
         hyphens: auto; //for this to apply u should define the language in the html code <html lang="en">
 
@@ -90,7 +89,6 @@
     }
 
     &:target &__content{
-        -webkit-transform: translate(-50%,-50%) scale(1) ;
         transform: translate(-50%,-50%) scale(1) ;
         opacity: 1;
     }
@@ -104,7 +102,6 @@
             font-size: 3rem;
             text-decoration: none;
             display: inline-block;
-            -webkit-transition: all .3s;
             transition: all .3s;
             line-height: 1;
 

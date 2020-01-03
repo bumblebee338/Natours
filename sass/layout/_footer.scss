@@ -49,16 +49,13 @@
             text-decoration: none;
             text-transform: uppercase;
             display: inline-block;
-            -webkit-transition: all .2s;
             transition: all .2s;
             background-color: $color-grey-dark-3;
         }
         &:hover,
         &:active{
             color: $color-primary;
-            -webkit-box-shadow: 0 1rem 2rem rgba($color-black,.5);
             box-shadow: 0 1rem 2rem rgba($color-black,.5);
-            -webkit-transform: rotate(5deg) scale(1.3);
             transform: rotate(5deg) scale(1.3);
 
         }
@@ -67,7 +64,7 @@
     &__copyright{
         border-top: 1px solid $color-grey-dark;
         padding-top: 2rem;
-        display: inline-block;
+        display: block;
         width: 80%;
         float: right;
         color: $color-grey-light-1;

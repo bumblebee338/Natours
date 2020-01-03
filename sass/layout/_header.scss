@@ -1,20 +1,30 @@
 .header{
-    background-image: -webkit-gradient(linear,
-    left top, right bottom,
-    from(rgba($color-primary-light, 0.801)),
-    to(rgba($color-primary-dark, 0.836))),
-    url(../img/hero.jpg);
     background-image: linear-gradient(to right bottom,
     rgba($color-primary-light, 0.801),
     rgba($color-primary-dark, 0.836)),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
     
-    height: 95vh;
+    height: 85vh;
     background-position: top;
     background-size: cover;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
+
+    @supports (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+
+    @media only screen and (min-resolution:192dpi) and (min-width:37.5em),
+            only screen and (-webkit-min-device-pixel-ratio:2) and (min-width:37.5em), //for safari only
+            only screen and (min-width:125em) {                                         // "," = "OR" here
+        background-image: linear-gradient(to right bottom,
+                            rgba($color-primary-light, 0.801),
+                             rgba($color-primary-dark, 0.836)),
+                             url(../img/hero.jpg);
+    }
 
     @include respond(phone){
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -34,7 +44,6 @@
         top: 40%;
         left: 50%;
         text-align: center; /*for btn "Discover our tours"*/
-        -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%); /*make sure that the text-box is in middle of the header, it shift the half of the box left and top w.r.t to header*/
     }
 }
