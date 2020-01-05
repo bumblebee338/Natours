@@ -5,3 +5,5 @@ in more professional way.
 
 To run this-
 >Go to the terminal and move to your directory and run command **npm install** to install node-sass packages in the file.
+
+Click here to view https://rkrider.github.io/Natours/
